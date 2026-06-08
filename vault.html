@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EM | The Vault</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-black text-white">
+
+    <nav class="vault-nav">
+        <div id="menu-icon" onclick="toggleMenu()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+        </div>
+    </nav>
+
+    <div id="menu-overlay" class="overlay">
+        <div class="overlay-content font-unbounded">
+            <a href="index.html" onclick="toggleMenu()">GENESIS</a>
+            <a href="vault.html" onclick="toggleMenu()">THE VAULT</a>
+            <a href="#contact" onclick="toggleMenu()">CONTACT</a>
+        </div>
+    </div>
+
+    <main class="vault-main-container">
+
+        <div id="quiz-wrapper" class="w-100 text-center" style="max-width: 900px;">
+
+            <div id="question-box" class="p-5 border border-secondary bg-transparent shadow-lg">
+                <p class="text-gold font-unbounded small mb-3" style="letter-spacing: 3px;">MECHANICAL DNA TEST</p>
+                <div class="mb-5">
+                    <h2 id="question-text" class="font-unbounded text-white display-5">Loading...</h2>
+                </div>
+                <div id="options-container" class="d-grid gap-4 d-md-flex justify-content-center">
+                </div>
+            </div>
+
+            <div id="result-box" class="d-none animate__animated animate__fadeIn p-5">
+                <p class="text-gold font-unbounded mb-2" style="letter-spacing: 2px;">IDENTIFICATION COMPLETE</p>
+                <h4 class="text-secondary font-unbounded small">MATCH FOUND:</h4>
+
+                <h2 id="archetype-name" class="display-2 font-unbounded text-white my-4"></h2>
+
+                <div class="result-img-container my-4">
+                    <img id="archetype-img" src="" alt="Watch Match" class="img-fluid grayscale-filter" style="max-height: 350px; border: 1px solid var(--border);">
+                </div>
+
+                <p id="archetype-desc" class="lead text-silver mb-5 px-md-5" style="font-size: 1rem; line-height: 1.6;"></p>
+
+                <button onclick="location.reload()" class="btn btn-outline-gold px-5 py-3 font-unbounded" style="letter-spacing: 2px; border-radius: 0;">
+                    RESTART PROTOCOL
+                </button>
+            </div>
+
+        </div>
+
+        <footer id="contact" class="contact-section w-100 mt-auto py-5">
+            <div class="container text-center">
+                <div class="divider-gold mb-4 mx-auto" style="width: 50px; height: 2px; background: #b39459;"></div>
+                <h3 class="font-unbounded text-white mb-3" style="font-size: 1rem; letter-spacing: 2px;">GET IN TOUCH</h3>
+                <div class="contact-links font-unbounded">
+                    <a href="mailto:tuamail@esempio.com" class="text-gold text-decoration-none mx-3 small">EMAIL</a>
+                    <a href="https://instagram.com/em.mechanicalgenesis" class="text-gold text-decoration-none mx-3 small">INSTAGRAM</a>
+                </div>
+                <p class="mt-4 text-muted small" style="font-size: 0.7rem;">© 2026 EM MECHANICAL GENESIS. ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#111; border-top:1px solid #b39459; padding:20px 40px; z-index:99999; align-items:center; justify-content:space-between; gap:20px;">
+        <p style="margin:0; color:#d1d1d1; font-size:0.85rem; font-family:'Instrument Sans', sans-serif;">
+            This site uses cookies to remember your watch profile and personalise your experience.
+        </p>
+        <button onclick="acceptCookies()" style="background:#b39459; color:#000; border:none; padding:10px 30px; font-family:'Unbounded', sans-serif; font-size:0.75rem; cursor:pointer; white-space:nowrap;">
+            ACCEPT
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+
+    <script>
+        function toggleMenu() {
+            const menuIcon = document.getElementById("menu-icon");
+            const overlay = document.getElementById("menu-overlay");
+            if (overlay.style.width === "100%") {
+                overlay.style.width = "0%";
+            } else {
+                overlay.style.width = "100%";
+            }
+        }
+    </script>
+</body>
+</html>

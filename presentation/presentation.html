@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EM Mechanical Genesis — Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #080808;
+            --white: #ffffff;
+            --gold: #b39459;
+            --silver: #d1d1d1;
+            --border: rgba(255,255,255,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Instrument Sans', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        .cover {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 80px;
+            margin-bottom: 80px;
+        }
+
+        .course-label {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .cover h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .cover h1 span { color: var(--gold); }
+
+        .cover-meta {
+            color: var(--silver);
+            font-size: 0.9rem;
+        }
+
+        .cover-meta strong {
+            color: var(--white);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 80px;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-label {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        h2 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+            margin-top: 32px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: var(--silver);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        p strong { color: var(--white); }
+
+        /* DIVIDER */
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 24px 0;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 24px;
+            font-size: 0.88rem;
+        }
+
+        th {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-align: left;
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        td {
+            padding: 12px 16px;
+            color: var(--silver);
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        td:first-child {
+            color: var(--white);
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        /* CODE */
+        .code {
+            background: rgba(255,255,255,0.03);
+            border-left: 2px solid var(--gold);
+            padding: 20px 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: var(--silver);
+            line-height: 1.8;
+            margin: 24px 0;
+        }
+
+        .code .kw { color: var(--gold); }
+        .code .cm { color: #444; font-style: italic; }
+
+        /* JOURNEY */
+        .journey-step {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .step-num {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.6rem;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            min-width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-content h4 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.7rem;
+            color: var(--white);
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+
+        .step-content p {
+            margin: 0;
+            font-size: 0.88rem;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer p {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- COVER -->
+    <div class="cover">
+        <span class="course-label">Web Communication — Università Statale di Milano — 2026</span>
+        <h1>EM <span>Mechanical</span><br>Genesis</h1>
+        <div class="divider"></div>
+        <div class="cover-meta">
+            <strong>Edoardo Marzullo</strong>
+            A high-end horology web experience built around user profiling, cookie management, A/B testing, and personalised content delivery.
+        </div>
+    </div>
+
+    <!-- 01 THE PROJECT -->
+    <section>
+        <span class="section-label">01 — The Project</span>
+        <h2>What is Mechanical Genesis?</h2>
+        <p>Mechanical Genesis is a two-page website dedicated to the history of high-end mechanical watchmaking. The site presents six landmark watches — from the Breguet n.2639 to the Omega Speedmaster — as editorial content.</p>
+        <p>Beyond the editorial layer, the site implements a complete user profiling system: visitors take an interactive quiz called the <strong>Mechanical DNA Test</strong>, which assigns them one of three archetypes. This profile is then used to personalise every aspect of the experience on return visits.</p>
+
+        <h3>Technologies Used</h3>
+        <p><strong>HTML5</strong> for semantic structure — <strong>CSS3</strong> with Grid and custom properties for layout and theming — <strong>Vanilla JavaScript</strong> with no external libraries for all logic — <strong>Bootstrap 5</strong> for responsive utilities — <strong>Google Fonts</strong> (Unbounded + Instrument Sans) for typography.</p>
+    </section>
+
+    <!-- 02 SITE STRUCTURE -->
+    <section>
+        <span class="section-label">02 — Structure</span>
+        <h2>Site Architecture</h2>
+        <p>The project is composed of two HTML pages, one shared CSS file, and one JavaScript file. Both pages link to the same external assets, ensuring visual and behavioural consistency.</p>
+
+        <h3>index.html — The Homepage</h3>
+        <p>The main editorial page. It presents the watch collection across two sections (The Origins and The Tools), contains the hero section with the A/B-tested title, the personalised welcome message, the profile box for returning users, recommended watch cards, the newsletter form, and the footer.</p>
+
+        <h3>vault.html — The Vault</h3>
+        <p>Hosts the Mechanical DNA Test. Five questions, three choices each. At the end, the user receives their archetype (The Technician, The Explorer, or The Purist) with a matching watch and description. The result is saved in a cookie.</p>
+    </section>
+
+    <!-- 03 USER PROFILING -->
+    <section>
+        <span class="section-label">03 — Profiling</span>
+        <h2>User Profiling</h2>
+        <p>The quiz assigns each visitor one of three profiles based on their answers. Each profile corresponds to a watch archetype and drives all personalisation on the site.</p>
+
+        <h3>The Technician — Pilot</h3>
+        <p>Drawn to engineering precision, high-beat chronographs, and titanium cases. Matched to the Zenith El Primero. Recommended cards: Omega Speedmaster and Cartier Santos.</p>
+
+        <h3>The Explorer — Diver</h3>
+        <p>Values tool-watch reliability and adventure. Matched to the Rolex Submariner. Recommended cards: Submariner and Blancpain Fifty Fathoms.</p>
+
+        <h3>The Purist — Dress</h3>
+        <p>Seeks timeless elegance and restraint. Matched to the JLC Reverso. Recommended cards: Reverso and Breguet n.2639.</p>
+
+        <h3>Quiz Logic</h3>
+        <p>Each answer increments a score counter for one of the three types. At the end, <strong>getWinner()</strong> finds the highest score using a simple <strong>for...in loop</strong> — a deliberate choice over Array.reduce() to keep the logic readable and proportionate to the task.</p>
+
+        <div class="code">
+<span class="kw">function</span> getWinner() {<br>
+&nbsp;&nbsp;<span class="kw">let</span> winner = <span class="kw">"Pilot"</span>;<br>
+&nbsp;&nbsp;<span class="kw">for</span> (<span class="kw">let</span> type <span class="kw">in</span> scores) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> (scores[type] > scores[winner]) winner = type;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="kw">return</span> winner;<br>
+}
+        </div>
+    </section>
+
+    <!-- 04 COOKIES & GDPR -->
+    <section>
+        <span class="section-label">04 — Cookies & GDPR</span>
+        <h2>Cookie Management</h2>
+        <p>The site uses five cookies. All profiling cookies are gated behind explicit GDPR consent — without <strong>cookieConsent=true</strong>, no data is written. The GDPR (General Data Protection Regulation) requires websites to request explicit user consent before storing profiling data. The banner appears on every page at first visit and disappears once the user accepts.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Cookie</th>
+                    <th>Purpose</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>cookieConsent</td><td>GDPR compliance gate</td><td>365 days</td></tr>
+                <tr><td>watchProfile</td><td>Stores quiz result for personalisation</td><td>30 days</td></tr>
+                <tr><td>visitCount</td><td>Tracks visits for progressive profiling</td><td>365 days</td></tr>
+                <tr><td>abTest</td><td>Assigns A/B version for consistency</td><td>30 days</td></tr>
+                <tr><td>newsletter</td><td>Prevents repeat subscription prompts</td><td>365 days</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 05 A/B TESTING -->
+    <section>
+        <span class="section-label">05 — A/B Testing</span>
+        <h2>A/B Testing</h2>
+        <p>A/B testing is a technique that shows two different versions of the same page to distinct groups of users, to compare which performs better. In this site, the hero title on the homepage is being tested.</p>
+
+        <h3>Version A — "Mechanical Genesis"</h3>
+        <p>The original title. Communicates heritage and editorial authority. Targets visitors who already speak the language of horology.</p>
+
+        <h3>Version B — "Discover Your DNA"</h3>
+        <p>Action-oriented alternative. Creates curiosity and invites interaction with the quiz. Designed to increase engagement from first-time visitors.</p>
+
+        <p>On the first visit, <strong>assignABVersion()</strong> uses Math.random() to assign version A or B with 50/50 probability. The result is saved in the <strong>abTest</strong> cookie so the user always sees the same version — exactly as in a real A/B test, where consistency is essential for reliable data collection.</p>
+
+        <div class="code">
+<span class="cm">// Assigned once at first visit, persisted for consistency</span><br>
+<span class="kw">const</span> version = Math.random() &lt; 0.5 ? <span class="kw">"A"</span> : <span class="kw">"B"</span>;
+        </div>
+    </section>
+
+    <!-- 06 CUSTOMER JOURNEY -->
+    <section>
+        <span class="section-label">06 — Strategy</span>
+        <h2>Customer Journey</h2>
+        <p>The site implements a complete five-phase customer journey, from first contact to long-term retention.</p>
+
+        <div style="margin-top: 32px;">
+            <div class="journey-step">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <h4>ARRIVE</h4>
+                    <p>The GDPR banner appears. The welcome message is neutral. An A/B test version is assigned and saved.</p>
+                </div>
+            </div>
+            <div class="journey-step">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <h4>PROFILE</h4>
+                    <p>The user navigates to The Vault and takes the Mechanical DNA Test. The result is saved in the watchProfile cookie.</p>
+                </div>
+            </div>
+            <div class="journey-step">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <h4>RETURN</h4>
+                    <p>The user comes back to the homepage. The profile box appears, recommended cards are highlighted, and the welcome message is personalised.</p>
+                </div>
+            </div>
+            <div class="journey-step">
+                <div class="step-num">04</div>
+                <div class="step-content">
+                    <h4>DEEPEN</h4>
+                    <p>Progressive profiling activates from the third visit onward. The visitCount cookie drives increasingly specific messaging.</p>
+                </div>
+            </div>
+            <div class="journey-step">
+                <div class="step-num">05</div>
+                <div class="step-content">
+                    <h4>RETAIN</h4>
+                    <p>The newsletter form collects the user's contact. The confirmation message is personalised based on their stored profile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 DYNAMIC CONTENT -->
+    <section>
+        <span class="section-label">07 — Personalisation</span>
+        <h2>Dynamic Content</h2>
+        <p>Three layers of personalisation activate on the homepage for returning users.</p>
+
+        <h3>Welcome Message</h3>
+        <p>The subtitle in the hero section changes based on profile and visit count. First visit: neutral. Second visit: recognition. Third visit onward: profile-specific message.</p>
+
+        <h3>Recommended Cards</h3>
+        <p>Two watch cards are highlighted with a gold border and a "★ Recommended for you" tag. The selection is driven by the stored profile — each archetype has its own pair of watches.</p>
+
+        <h3>Your Profile Box</h3>
+        <p>A persistent section appears between the hero and the watch grid, showing the user's archetype name and a direct link to retake the quiz — closing the loop and keeping the profile up to date.</p>
+    </section>
+
+    <!-- 08 CONCLUSIONS -->
+    <section>
+        <span class="section-label">08 — Conclusions</span>
+        <h2>What This Project Demonstrates</h2>
+        <p>Mechanical Genesis demonstrates that user profiling, GDPR compliance, A/B testing, and personalised content delivery can be implemented entirely in client-side JavaScript — no backend, no frameworks, no external libraries beyond Bootstrap for layout utilities.</p>
+        <p>Every technical choice was deliberate: the for...in loop over reduce(), the separation of data from logic, the progressive approach to personalisation. The result is a site that behaves differently for every user, built on five cookies and a clear understanding of the customer journey.</p>
+
+        <div class="divider"></div>
+        <p><strong>GitHub:</strong> em-mechanical-genesis<br>
+        <strong>Instagram:</strong> @em.mechanicalgenesis</p>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>EM Mechanical Genesis — Edoardo Marzullo — Web Communication 2026</p>
+    </div>
+
+</body>
+</html>

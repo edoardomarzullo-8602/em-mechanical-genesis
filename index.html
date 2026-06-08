@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EM | Mechanical Genesis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-black text-white">
+
+    <nav class="vault-nav">
+        <div id="menu-icon" onclick="toggleMenu()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+        </div>
+    </nav>
+
+    <div id="menu-overlay" class="overlay">
+        <div class="overlay-content font-unbounded">
+            <a href="index.html" onclick="toggleMenu()">GENESIS</a>
+            <a href="vault.html" onclick="toggleMenu()">THE VAULT</a>
+            <a href="#contact" onclick="toggleMenu()">CONTACT</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero-centered">
+            <div class="container text-center">
+                <span class="label text-gold font-unbounded">High-End Horology</span>
+                <h1 id="hero-title" class="display-1 font-unbounded mt-3">MECHANICAL<br>GENESIS</h1>
+                <p id="welcome-message" class="lead text-silver mx-auto mt-4" style="max-width: 700px;">
+                    From the first wrist-worn caliber to the conquest of space. <br>
+                    A curated selection of the pillars that defined timekeeping.
+                </p>
+                <div class="scroll-indicator mt-5 animate__animated animate__fadeInUp">
+                    <div class="mouse"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile-box" style="display:none; border-bottom: 1px solid var(--border); padding: 40px 5%; align-items:center; justify-content:space-between; gap: 20px;">
+            <div>
+                <p class="text-gold font-unbounded small mb-1" style="letter-spacing:3px;">YOUR PROFILE</p>
+                <h3 id="profile-box-name" class="font-unbounded text-white mb-0"></h3>
+            </div>
+            <a href="vault.html" class="btn font-unbounded small" style="border: 1px solid var(--gold); color: var(--gold); border-radius:0; padding: 12px 30px; letter-spacing:2px; font-size:0.75rem;">
+                RETAKE THE TEST →
+            </a>
+        </section>
+
+        <section id="origins" class="tech-section">
+            <h2 class="category-title font-unbounded text-gold">01. The Origins</h2>
+            <div class="watch-grid">
+                <article id="card-breguet" class="watch-card">
+                        <p>The Birth. The first concept of a timepiece designed for the wrist.</p>
+                        <span class="tech-tag">Manual Wind</span>
+                    </div>
+                    <div class="watch-photo-area">
+                        <img src="img/breguet.png" alt="Breguet">
+                    </div>
+                </article>
+                <article id="card-santos" class="watch-card">
+                    <div class="card-content">
+                        <h3>Cartier Santos</h3>
+                        <p>The Rise. The first pilot's watch, merging aviation with Parisian elegance.</p>
+                        <span class="tech-tag">Art Deco</span>
+                    </div>
+                    <div class="watch-photo-area">
+                        <img src="img/santos.png" alt="Cartier">
+                    </div>
+                </article>
+                <article id="card-reverso" class="watch-card">
+                    <div class="card-content">
+                        <h3>JLC Reverso</h3>
+                        <p>Technical Elegance. The iconic swiveling case for polo matches.</p>
+                        <span class="tech-tag">Reversible</span>
+                    </div>
+                    <div class="watch-photo-area">
+                        <img src="img/dress.png" alt="JLC">
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="tools" class="tech-section bg-dark-soft">
+            <h2 class="category-title font-unbounded text-gold">02. The Tools</h2>
+            <div class="watch-grid">
+                <article id="card-fiftyf" class="watch-card">
+                    <div class="card-content">
+                        <h3>Blancpain Fifty Fathoms</h3>
+                        <p>The Pioneer. The blueprint for every modern diving watch.</p>
+                        <span class="tech-tag">Diver Standard</span>
+                    </div>
+                    <div class="watch-photo-area">
+                        <img src="img/blancpain.png" alt="Blancpain">
+                    </div>
+                </article>
+                <article id="card-submariner" class="watch-card">
+                    <div class="card-content">
+                        <h3>Rolex Submariner</h3>
+                        <p>The Standard. The ultimate reference for underwater exploration.</p>
+                        <span class="tech-tag">300m Waterproof</span>
+                    </div>
+                    <div class="watch-photo-area">
+                        <img src="img/diver.png" alt="Rolex">
+                    </div>
+                </article>
+                <article id="card-speedmaster" class="watch-card">
+                    <div class="card-content">
+                        <h3>Omega Speedmaster</h3>
+                        <p>Space Heritage. The first watch on the Moon (Caliber 321).</p>
+                        <span class="tech-tag">Moonwatch</span>
+                    </div>
+                    <div class="watch-photo-area">
+                        <img src="img/omega.png" alt="Omega">
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <footer id="contact" class="contact-section">
+            <div class="container text-center">
+                <div class="divider-gold mb-5 mx-auto"></div>
+                <h3 class="font-unbounded text-white mb-4">GET IN TOUCH</h3>
+                <p class="text-silver mb-5">Curiosity is the engine of horology. Reach out for inquiries or collaborations.</p>
+                <div class="mb-5">
+                    <p class="text-gold font-unbounded small mb-3" style="letter-spacing:3px;">JOIN THE INNER CIRCLE</p>
+                    <p class="text-silver small mb-4">Receive curated horology insights. No noise, only signal.</p>
+                    <div id="newsletter-form" style="display:flex; justify-content:center; gap:0; max-width:480px; margin:0 auto;">
+                        <input 
+                            id="newsletter-input"
+                            type="email" 
+                            placeholder="your@email.com" 
+                            style="flex:1; background:transparent; border:1px solid var(--gold); border-right:none; padding:12px 20px; color:white; font-family:'Instrument Sans', sans-serif; font-size:0.85rem; outline:none;"
+                        >
+                        <button 
+                            onclick="subscribeNewsletter()"
+                            style="background:var(--gold); color:#000; border:none; padding:12px 25px; font-family:'Unbounded', sans-serif; font-size:0.7rem; letter-spacing:2px; cursor:pointer;">
+                            SUBSCRIBE
+                        </button>
+                    </div>
+                    <p id="newsletter-confirm" style="display:none; color:var(--gold); font-family:'Unbounded', sans-serif; font-size:0.75rem; letter-spacing:2px; margin-top:15px;">
+                        ✓ YOU'RE ON THE LIST.
+                    </p>
+                </div>
+
+                <div class="contact-links font-unbounded">
+                    <a href="mailto:your-email@example.com" class="mx-3">EMAIL</a>
+                    <a href="https://instagram.com/em.mechanicalgenesis" class="mx-3">INSTAGRAM</a>
+                    <a href="#" class="mx-3">LINKEDIN</a>
+                </div>
+                <p class="mt-5 text-muted small">© 2026 EM MECHANICAL GENESIS. ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+    </main>
+
+    <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#111; border-top:1px solid #b39459; padding:20px 40px; z-index:99999; align-items:center; justify-content:space-between; gap:20px;">
+        <p style="margin:0; color:#d1d1d1; font-size:0.85rem; font-family:'Instrument Sans', sans-serif;">
+            This site uses cookies to remember your watch profile and personalise your experience.
+        </p>
+        <button onclick="acceptCookies()" style="background:#b39459; color:#000; border:none; padding:10px 30px; font-family:'Unbounded', sans-serif; font-size:0.75rem; cursor:pointer; white-space:nowrap;">
+            ACCEPT
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+
+    <script>
+        function toggleMenu() {
+            const menuIcon = document.getElementById("menu-icon");
+            const overlay = document.getElementById("menu-overlay");
+            if (overlay.style.width === "100%") {
+                overlay.style.width = "0%";
+            } else {
+                overlay.style.width = "100%";
+            }
+        }
+    </script>
+</body>
+</html>
