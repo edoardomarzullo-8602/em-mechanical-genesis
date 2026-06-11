@@ -16,63 +16,76 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
             background: var(--black);
             color: var(--white);
             font-family: 'Instrument Sans', sans-serif;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8vh 10vw;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .slide-inner {
             max-width: 800px;
             margin: 0 auto;
-            padding: 80px 40px;
-            line-height: 1.7;
+            width: 100%;
         }
 
-        /* HEADER */
-        .cover {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 80px;
-            margin-bottom: 80px;
-        }
-
+        /* COVER */
         .course-label {
             font-family: 'Unbounded', sans-serif;
             font-size: 0.6rem;
             letter-spacing: 4px;
             color: var(--gold);
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             display: block;
         }
 
         .cover h1 {
             font-family: 'Unbounded', sans-serif;
-            font-size: 3rem;
+            font-size: clamp(2rem, 5.5vw, 3.5rem);
             line-height: 1.1;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .cover h1 span { color: var(--gold); }
 
         .cover-meta {
             color: var(--silver);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .cover-meta strong {
             color: var(--white);
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
 
-        /* SECTIONS */
-        section {
-            margin-bottom: 80px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 80px;
-        }
-
-        section:last-child {
-            border-bottom: none;
-        }
-
+        /* SECTION HEADERS */
         .section-label {
             font-family: 'Unbounded', sans-serif;
             font-size: 0.6rem;
@@ -84,42 +97,42 @@
 
         h2 {
             font-family: 'Unbounded', sans-serif;
-            font-size: 1.6rem;
+            font-size: clamp(1.4rem, 3.2vw, 2.2rem);
             margin-bottom: 24px;
             line-height: 1.2;
         }
 
         h3 {
             font-family: 'Unbounded', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--gold);
             margin-bottom: 8px;
-            margin-top: 32px;
+            margin-top: 24px;
             letter-spacing: 1px;
         }
 
         p {
             color: var(--silver);
-            font-size: 0.95rem;
-            margin-bottom: 16px;
+            font-size: 0.92rem;
+            margin-bottom: 14px;
+            line-height: 1.65;
         }
 
         p strong { color: var(--white); }
 
-        /* DIVIDER */
         .divider {
             width: 40px;
             height: 1px;
             background: var(--gold);
-            margin: 24px 0;
+            margin: 20px 0;
         }
 
         /* TABLE */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 24px;
-            font-size: 0.88rem;
+            margin-top: 16px;
+            font-size: 0.85rem;
         }
 
         th {
@@ -128,21 +141,22 @@
             letter-spacing: 3px;
             color: var(--gold);
             text-align: left;
-            padding: 10px 16px;
+            padding: 8px 14px;
             border-bottom: 1px solid var(--gold);
         }
 
         td {
-            padding: 12px 16px;
+            padding: 10px 14px;
             color: var(--silver);
             border-bottom: 1px solid var(--border);
             vertical-align: top;
+            font-size: 0.82rem;
         }
 
         td:first-child {
             color: var(--white);
             font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             white-space: nowrap;
         }
 
@@ -150,12 +164,12 @@
         .code {
             background: rgba(255,255,255,0.03);
             border-left: 2px solid var(--gold);
-            padding: 20px 24px;
+            padding: 16px 20px;
             font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--silver);
-            line-height: 1.8;
-            margin: 24px 0;
+            line-height: 1.7;
+            margin: 16px 0;
         }
 
         .code .kw { color: var(--gold); }
@@ -164,9 +178,9 @@
         /* JOURNEY */
         .journey-step {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             align-items: flex-start;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
         .step-num {
@@ -174,18 +188,17 @@
             font-size: 0.6rem;
             color: var(--gold);
             border: 1px solid var(--gold);
-            min-width: 36px;
-            height: 36px;
+            min-width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            margin-top: 2px;
         }
 
         .step-content h4 {
             font-family: 'Unbounded', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             color: var(--white);
             margin-bottom: 4px;
             letter-spacing: 1px;
@@ -193,29 +206,63 @@
 
         .step-content p {
             margin: 0;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
         }
 
-        /* FOOTER */
-        .footer {
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            text-align: center;
+        /* NAV UI */
+        .nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 100;
         }
 
-        .footer p {
+        .nav button {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
             font-family: 'Unbounded', sans-serif;
             font-size: 0.6rem;
             letter-spacing: 3px;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav button:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .slide-counter {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.6rem;
             color: var(--gold);
+            letter-spacing: 3px;
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.4s ease;
+            z-index: 100;
         }
     </style>
 </head>
 <body>
 
-    <!-- COVER -->
-    <div class="cover">
+<div class="progress" id="progress"></div>
+
+<!-- SLIDE 0 — COVER -->
+<div class="slide active">
+    <div class="slide-inner cover">
         <span class="course-label">Web Communication — Università Statale di Milano — 2026</span>
         <h1>EM <span>Mechanical</span><br>Genesis</h1>
         <div class="divider"></div>
@@ -224,49 +271,54 @@
             A high-end horology web experience built around user profiling, cookie management, A/B testing, and personalised content delivery.
         </div>
     </div>
+</div>
 
-    <!-- 01 THE PROJECT -->
-    <section>
+<!-- SLIDE 1 — THE PROJECT -->
+<div class="slide">
+    <div class="slide-inner">
         <span class="section-label">01 — The Project</span>
         <h2>What is Mechanical Genesis?</h2>
         <p>Mechanical Genesis is a two-page website dedicated to the history of high-end mechanical watchmaking. The site presents six landmark watches — from the Breguet n.2639 to the Omega Speedmaster — as editorial content.</p>
         <p>Beyond the editorial layer, the site implements a complete user profiling system: visitors take an interactive quiz called the <strong>Mechanical DNA Test</strong>, which assigns them one of three archetypes. This profile is then used to personalise every aspect of the experience on return visits.</p>
-
         <h3>Technologies Used</h3>
         <p><strong>HTML5</strong> for semantic structure — <strong>CSS3</strong> with Grid and custom properties for layout and theming — <strong>Vanilla JavaScript</strong> with no external libraries for all logic — <strong>Bootstrap 5</strong> for responsive utilities — <strong>Google Fonts</strong> (Unbounded + Instrument Sans) for typography.</p>
-    </section>
+    </div>
+</div>
 
-    <!-- 02 SITE STRUCTURE -->
-    <section>
+<!-- SLIDE 2 — SITE STRUCTURE -->
+<div class="slide">
+    <div class="slide-inner">
         <span class="section-label">02 — Structure</span>
         <h2>Site Architecture</h2>
         <p>The project is composed of two HTML pages, one shared CSS file, and one JavaScript file. Both pages link to the same external assets, ensuring visual and behavioural consistency.</p>
-
         <h3>index.html — The Homepage</h3>
         <p>The main editorial page. It presents the watch collection across two sections (The Origins and The Tools), contains the hero section with the A/B-tested title, the personalised welcome message, the profile box for returning users, recommended watch cards, the newsletter form, and the footer.</p>
-
         <h3>vault.html — The Vault</h3>
         <p>Hosts the Mechanical DNA Test. Five questions, three choices each. At the end, the user receives their archetype (The Technician, The Explorer, or The Purist) with a matching watch and description. The result is saved in a cookie.</p>
-    </section>
+    </div>
+</div>
 
-    <!-- 03 USER PROFILING -->
-    <section>
+<!-- SLIDE 3 — USER PROFILING -->
+<div class="slide">
+    <div class="slide-inner">
         <span class="section-label">03 — Profiling</span>
         <h2>User Profiling</h2>
         <p>The quiz assigns each visitor one of three profiles based on their answers. Each profile corresponds to a watch archetype and drives all personalisation on the site.</p>
-
         <h3>The Technician — Pilot</h3>
         <p>Drawn to engineering precision, high-beat chronographs, and titanium cases. Matched to the Zenith El Primero. Recommended cards: Omega Speedmaster and Cartier Santos.</p>
-
         <h3>The Explorer — Diver</h3>
         <p>Values tool-watch reliability and adventure. Matched to the Rolex Submariner. Recommended cards: Submariner and Blancpain Fifty Fathoms.</p>
-
         <h3>The Purist — Dress</h3>
         <p>Seeks timeless elegance and restraint. Matched to the JLC Reverso. Recommended cards: Reverso and Breguet n.2639.</p>
+    </div>
+</div>
 
-        <h3>Quiz Logic</h3>
+<!-- SLIDE 4 — QUIZ LOGIC -->
+<div class="slide">
+    <div class="slide-inner">
+        <span class="section-label">03 — Profiling</span>
+        <h2>Quiz Logic</h2>
         <p>Each answer increments a score counter for one of the three types. At the end, <strong>getWinner()</strong> finds the highest score using a simple <strong>for...in loop</strong> — a deliberate choice over Array.reduce() to keep the logic readable and proportionate to the task.</p>
-
         <div class="code">
 <span class="kw">function</span> getWinner() {<br>
 &nbsp;&nbsp;<span class="kw">let</span> winner = <span class="kw">"Pilot"</span>;<br>
@@ -276,21 +328,19 @@
 &nbsp;&nbsp;<span class="kw">return</span> winner;<br>
 }
         </div>
-    </section>
+        <p>Data is separated from logic: <strong>questions</strong> and <strong>profiles</strong> are stored in dedicated objects, completely independent from the functions that render and process them.</p>
+    </div>
+</div>
 
-    <!-- 04 COOKIES & GDPR -->
-    <section>
+<!-- SLIDE 5 — COOKIES & GDPR -->
+<div class="slide">
+    <div class="slide-inner">
         <span class="section-label">04 — Cookies & GDPR</span>
         <h2>Cookie Management</h2>
-        <p>The site uses five cookies. All profiling cookies are gated behind explicit GDPR consent — without <strong>cookieConsent=true</strong>, no data is written. The GDPR (General Data Protection Regulation) requires websites to request explicit user consent before storing profiling data. The banner appears on every page at first visit and disappears once the user accepts.</p>
-
+        <p>The site uses five cookies. All profiling cookies are gated behind explicit GDPR consent — without <strong>cookieConsent=true</strong>, no data is written.</p>
         <table>
             <thead>
-                <tr>
-                    <th>Cookie</th>
-                    <th>Purpose</th>
-                    <th>Duration</th>
-                </tr>
+                <tr><th>Cookie</th><th>Purpose</th><th>Duration</th></tr>
             </thead>
             <tbody>
                 <tr><td>cookieConsent</td><td>GDPR compliance gate</td><td>365 days</td></tr>
@@ -300,105 +350,136 @@
                 <tr><td>newsletter</td><td>Prevents repeat subscription prompts</td><td>365 days</td></tr>
             </tbody>
         </table>
-    </section>
+        <p style="margin-top:16px;">The GDPR (General Data Protection Regulation) requires websites to request explicit user consent before storing profiling data. The banner appears on first visit and disappears once accepted.</p>
+    </div>
+</div>
 
-    <!-- 05 A/B TESTING -->
-    <section>
+<!-- SLIDE 6 — A/B TESTING -->
+<div class="slide">
+    <div class="slide-inner">
         <span class="section-label">05 — A/B Testing</span>
         <h2>A/B Testing</h2>
-        <p>A/B testing is a technique that shows two different versions of the same page to distinct groups of users, to compare which performs better. In this site, the hero title on the homepage is being tested.</p>
-
+        <p>A/B testing shows two different versions of the same page to distinct groups of users, to compare which performs better.</p>
         <h3>Version A — "Mechanical Genesis"</h3>
-        <p>The original title. Communicates heritage and editorial authority. Targets visitors who already speak the language of horology.</p>
-
+        <p>The original title. Communicates heritage and editorial authority.</p>
         <h3>Version B — "Discover Your DNA"</h3>
-        <p>Action-oriented alternative. Creates curiosity and invites interaction with the quiz. Designed to increase engagement from first-time visitors.</p>
-
-        <p>On the first visit, <strong>assignABVersion()</strong> uses Math.random() to assign version A or B with 50/50 probability. The result is saved in the <strong>abTest</strong> cookie so the user always sees the same version — exactly as in a real A/B test, where consistency is essential for reliable data collection.</p>
-
+        <p>Action-oriented alternative. Creates curiosity and invites interaction with the quiz.</p>
+        <p>On the first visit, <strong>assignABVersion()</strong> uses Math.random() to assign A or B with 50/50 probability. The result is saved in the <strong>abTest</strong> cookie so the user always sees the same version — essential for reliable data collection.</p>
         <div class="code">
-<span class="cm">// Assigned once at first visit, persisted for consistency</span><br>
+<span class="cm">// Assigned once, persisted for consistency</span><br>
 <span class="kw">const</span> version = Math.random() &lt; 0.5 ? <span class="kw">"A"</span> : <span class="kw">"B"</span>;
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- 06 CUSTOMER JOURNEY -->
-    <section>
+<!-- SLIDE 7 — CUSTOMER JOURNEY -->
+<div class="slide">
+    <div class="slide-inner">
         <span class="section-label">06 — Strategy</span>
         <h2>Customer Journey</h2>
-        <p>The site implements a complete five-phase customer journey, from first contact to long-term retention.</p>
-
-        <div style="margin-top: 32px;">
+        <p>A complete five-phase journey, from first contact to long-term retention.</p>
+        <div style="margin-top: 20px;">
             <div class="journey-step">
                 <div class="step-num">01</div>
                 <div class="step-content">
                     <h4>ARRIVE</h4>
-                    <p>The GDPR banner appears. The welcome message is neutral. An A/B test version is assigned and saved.</p>
+                    <p>GDPR banner appears. Welcome message is neutral. A/B version assigned and saved.</p>
                 </div>
             </div>
             <div class="journey-step">
                 <div class="step-num">02</div>
                 <div class="step-content">
                     <h4>PROFILE</h4>
-                    <p>The user navigates to The Vault and takes the Mechanical DNA Test. The result is saved in the watchProfile cookie.</p>
+                    <p>User takes the Mechanical DNA Test on The Vault. Result saved in watchProfile.</p>
                 </div>
             </div>
             <div class="journey-step">
                 <div class="step-num">03</div>
                 <div class="step-content">
                     <h4>RETURN</h4>
-                    <p>The user comes back to the homepage. The profile box appears, recommended cards are highlighted, and the welcome message is personalised.</p>
+                    <p>Profile box appears, recommended cards highlighted, message personalised.</p>
                 </div>
             </div>
             <div class="journey-step">
                 <div class="step-num">04</div>
                 <div class="step-content">
                     <h4>DEEPEN</h4>
-                    <p>Progressive profiling activates from the third visit onward. The visitCount cookie drives increasingly specific messaging.</p>
+                    <p>Progressive profiling from visit 3 onward via visitCount.</p>
                 </div>
             </div>
             <div class="journey-step">
                 <div class="step-num">05</div>
                 <div class="step-content">
                     <h4>RETAIN</h4>
-                    <p>The newsletter form collects the user's contact. The confirmation message is personalised based on their stored profile.</p>
+                    <p>Newsletter form collects contact with personalised confirmation.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- 07 DYNAMIC CONTENT -->
-    <section>
+<!-- SLIDE 8 — DYNAMIC CONTENT -->
+<div class="slide">
+    <div class="slide-inner">
         <span class="section-label">07 — Personalisation</span>
         <h2>Dynamic Content</h2>
         <p>Three layers of personalisation activate on the homepage for returning users.</p>
-
         <h3>Welcome Message</h3>
-        <p>The subtitle in the hero section changes based on profile and visit count. First visit: neutral. Second visit: recognition. Third visit onward: profile-specific message.</p>
-
+        <p>Changes based on profile and visit count. First visit: neutral. Second: recognition. Third onward: profile-specific.</p>
         <h3>Recommended Cards</h3>
-        <p>Two watch cards are highlighted with a gold border and a "★ Recommended for you" tag. The selection is driven by the stored profile — each archetype has its own pair of watches.</p>
-
+        <p>Two watch cards highlighted with a gold border and a "★ Recommended for you" tag, based on the stored profile.</p>
         <h3>Your Profile Box</h3>
-        <p>A persistent section appears between the hero and the watch grid, showing the user's archetype name and a direct link to retake the quiz — closing the loop and keeping the profile up to date.</p>
-    </section>
+        <p>A persistent section showing the user's archetype and a link to retake the quiz — closing the loop.</p>
+    </div>
+</div>
 
-    <!-- 08 CONCLUSIONS -->
-    <section>
+<!-- SLIDE 9 — CONCLUSIONS -->
+<div class="slide">
+    <div class="slide-inner">
         <span class="section-label">08 — Conclusions</span>
         <h2>What This Project Demonstrates</h2>
         <p>Mechanical Genesis demonstrates that user profiling, GDPR compliance, A/B testing, and personalised content delivery can be implemented entirely in client-side JavaScript — no backend, no frameworks, no external libraries beyond Bootstrap for layout utilities.</p>
         <p>Every technical choice was deliberate: the for...in loop over reduce(), the separation of data from logic, the progressive approach to personalisation. The result is a site that behaves differently for every user, built on five cookies and a clear understanding of the customer journey.</p>
-
         <div class="divider"></div>
         <p><strong>GitHub:</strong> em-mechanical-genesis<br>
         <strong>Instagram:</strong> @em.mechanicalgenesis</p>
-    </section>
-
-    <!-- FOOTER -->
-    <div class="footer">
-        <p>EM Mechanical Genesis — Edoardo Marzullo — Web Communication 2026</p>
     </div>
+</div>
+
+<!-- NAVIGATION -->
+<div class="nav">
+    <span class="slide-counter" id="counter">01 / 10</span>
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    const total = slides.length;
+    let current = 0;
+
+    function goTo(n) {
+        slides[current].classList.remove('active');
+        current = (n + total) % total;
+        slides[current].classList.add('active');
+        document.getElementById('counter').innerText = String(current + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+        document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+    }
+
+    function nextSlide() { goTo(current + 1); }
+    function prevSlide() { goTo(current - 1); }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown') {
+            e.preventDefault();
+            nextSlide();
+        }
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+            e.preventDefault();
+            prevSlide();
+        }
+    });
+
+    document.getElementById('progress').style.width = (1 / total * 100) + '%';
+</script>
 
 </body>
 </html>
